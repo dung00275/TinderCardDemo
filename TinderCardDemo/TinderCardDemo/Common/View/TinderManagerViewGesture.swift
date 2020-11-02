@@ -52,7 +52,6 @@ final class TinderManagerViewGesture<ContentView>: Weakifiable where ContentView
         self.delegate = delegate
         miscContainerView.addSubview(anchorView)
         addGesture()
-        addSnapContainer()
         setupRX()
     }
     
@@ -73,6 +72,7 @@ final class TinderManagerViewGesture<ContentView>: Weakifiable where ContentView
         let p = containerView.center
         self.snapBehavior = UISnapBehavior(item: view, snapTo: p)
         self.snapBehavior?.damping = 0.75
+        addBehavior(snapBehavior)
     }
     
     private func addGesture() {
@@ -149,7 +149,7 @@ final class TinderManagerViewGesture<ContentView>: Weakifiable where ContentView
                     wSelf.delegate?.didRemove(view: wSelf.view, location: location, direction: direction)
                 } else {
                     wSelf.detachView()
-                    wSelf.addBehavior(wSelf.snapBehavior)
+                    wSelf.addSnapContainer()
                     wSelf.view.cancelDragGesture()
                 }
             default:
