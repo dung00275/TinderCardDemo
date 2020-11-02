@@ -3,7 +3,7 @@
 //  FaceCar
 //
 //  Created by Dung Vu on 12/4/18.
-//  Copyright © 2018 Vato. All rights reserved.
+//  Copyright © 2018. All rights reserved.
 //
 
 import RIBs

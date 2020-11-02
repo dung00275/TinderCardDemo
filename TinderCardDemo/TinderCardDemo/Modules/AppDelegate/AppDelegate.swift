@@ -39,9 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TinderCardDemoDependency 
         return .default
         #endif
     }()
+    
     var networkRequester: RequestNetworkProtocol {
         return mNetworkRequester
     }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let window = UIWindow(frame: UIScreen.main.bounds)
