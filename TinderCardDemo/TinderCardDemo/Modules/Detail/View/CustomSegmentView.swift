@@ -4,7 +4,7 @@
 //  Created date: 5/5/20
 //  Version     : 1.00
 //  --------------------------------------------------------------
-//  Copyright © 2020 Vato. All rights reserved.
+//  Copyright © 2020. All rights reserved.
 //  --------------------------------------------------------------
 
 import UIKit
