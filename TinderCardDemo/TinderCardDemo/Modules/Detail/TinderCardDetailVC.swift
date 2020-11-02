@@ -68,6 +68,7 @@ private extension TinderCardDetailVC {
                 guard let i = items[safe: idx] else { return nil }
                 let v = TinderCardDetailView.loadXib()
                 v.setupDisplay(i)
+                v.accessibilityLabel = "DetailCard_\(idx)"
                 return v
             }
         }

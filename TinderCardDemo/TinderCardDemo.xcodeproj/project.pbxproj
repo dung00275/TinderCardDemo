@@ -27,6 +27,9 @@
 		6817BA45254F9C2C000C2973 /* TinderItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6817BA06254F6318000C2973 /* TinderItemInfoView.swift */; };
 		6817BA4A254F9EA6000C2973 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 6817BA49254F9EA6000C2973 /* response.json */; };
 		6817BA52254FA9E0000C2973 /* responseNoData.json in Resources */ = {isa = PBXBuildFile; fileRef = 6817BA51254FA9E0000C2973 /* responseNoData.json */; };
+		6817BA5C254FC9B9000C2973 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F20557254BC214004DF862 /* AppDelegate.swift */; };
+		6817BA60254FC9EA000C2973 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F20557254BC214004DF862 /* AppDelegate.swift */; };
+		68C94610254FE9020020943B /* responseDummy.json in Resources */ = {isa = PBXBuildFile; fileRef = 68C9460F254FE9020020943B /* responseDummy.json */; };
 		68F20558254BC214004DF862 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F20557254BC214004DF862 /* AppDelegate.swift */; };
 		68F2055F254BC214004DF862 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68F2055D254BC214004DF862 /* Main.storyboard */; };
 		68F20561254BC216004DF862 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F20560254BC216004DF862 /* Assets.xcassets */; };
@@ -150,6 +153,7 @@
 		6817BA0D254F6953000C2973 /* TinderCardDemoComponent+TinderCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TinderCardDemoComponent+TinderCardDetail.swift"; sourceTree = "<group>"; };
 		6817BA49254F9EA6000C2973 /* response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
 		6817BA51254FA9E0000C2973 /* responseNoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = responseNoData.json; sourceTree = "<group>"; };
+		68C9460F254FE9020020943B /* responseDummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = responseDummy.json; sourceTree = "<group>"; };
 		68F20554254BC214004DF862 /* TinderCardDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderCardDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F20557254BC214004DF862 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68F2055E254BC214004DF862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -257,6 +261,16 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		68C945FD254FE6750020943B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				68C9460F254FE9020020943B /* responseDummy.json */,
+				68F20560254BC216004DF862 /* Assets.xcassets */,
+				68F20562254BC216004DF862 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		68F2054B254BC214004DF862 = {
 			isa = PBXGroup;
 			children = (
@@ -287,8 +301,7 @@
 				68F205D4254E28A7004DF862 /* Network */,
 				68F205AD254BEEEB004DF862 /* Protocol */,
 				68F20597254BC91C004DF862 /* Common */,
-				68F20560254BC216004DF862 /* Assets.xcassets */,
-				68F20562254BC216004DF862 /* LaunchScreen.storyboard */,
+				68C945FD254FE6750020943B /* Resources */,
 				68F20565254BC216004DF862 /* Info.plist */,
 			);
 			path = TinderCardDemo;
@@ -372,7 +385,6 @@
 		68F20642254EF9EC004DF862 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				6817BA0C254F692C000C2973 /* Extension */,
 				68F20644254EFB0C004DF862 /* Root */,
 				68F2068F254EFF80004DF862 /* Detail */,
 				68F20643254EFA07004DF862 /* AppDelegate */,
@@ -391,6 +403,7 @@
 		68F20644254EFB0C004DF862 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				6817BA0C254F692C000C2973 /* Extension */,
 				68F2055D254BC214004DF862 /* Main.storyboard */,
 				68F20651254EFCBF004DF862 /* TinderCardDemoRouter.swift */,
 				68F20652254EFCBF004DF862 /* TinderCardDemoBuilder.swift */,
@@ -539,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68F20564254BC216004DF862 /* LaunchScreen.storyboard in Resources */,
+				68C94610254FE9020020943B /* responseDummy.json in Resources */,
 				68F20561254BC216004DF862 /* Assets.xcassets in Resources */,
 				68F2055F254BC214004DF862 /* Main.storyboard in Resources */,
 				6817BA01254F6152000C2973 /* TinderItemInfoView.xib in Resources */,
@@ -716,6 +730,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6817BA60254FC9EA000C2973 /* AppDelegate.swift in Sources */,
 				6817BA40254F9C1D000C2973 /* CustomSegmentView.swift in Sources */,
 				68F206E2254F0645004DF862 /* TinderCardDetailInteractor.swift in Sources */,
 				68F20614254E30C4004DF862 /* Street.swift in Sources */,
@@ -755,6 +770,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6817BA5C254FC9B9000C2973 /* AppDelegate.swift in Sources */,
 				68F206E3254F0645004DF862 /* TinderCardDetailInteractor.swift in Sources */,
 				68F20615254E30C4004DF862 /* Street.swift in Sources */,
 				68F206DD254F0645004DF862 /* TinderCardDetailRouter.swift in Sources */,

@@ -103,7 +103,7 @@ final class TinderCardSwipeView<ContentView>: UIView, TinderManagerViewDelegateP
         let t2 = CGAffineTransform(scaleX: 1 - CGFloat(index) * 0.05, y: 1)
         let transform = t1.concatenating(t2)
         UIView.animate(withDuration: 0.3, delay: 0, options: .allowUserInteraction, animations: {
-            view.transform = transform//CGAffineTransform(translationX: 0, y: CGFloat(index * 10))
+            view.transform = transform
         }, completion: completion)
     }
     
@@ -115,7 +115,7 @@ final class TinderCardSwipeView<ContentView>: UIView, TinderManagerViewDelegateP
     // MARK: -- Delegate
     func didRemove(view: UIView, location: CGPoint, direction: CGVector) {
         viewManagers.removeValue(forKey: view)
-        loadView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: loadView)
     }
 }
 

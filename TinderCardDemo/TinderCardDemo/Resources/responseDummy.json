@@ -1,0 +1,119 @@
+{
+    "results": [{
+        "gender": "female",
+        "name": {
+            "title": "Miss",
+            "first": "Hanna",
+            "last": "Graham"
+        },
+        "location": {
+            "street": {
+                "number": 9742,
+                "name": "South Street"
+            },
+            "city": "Donabate",
+            "state": "Roscommon",
+            "country": "Ireland",
+            "postcode": 25787,
+            "coordinates": {
+                "latitude": "17.1106",
+                "longitude": "76.9772"
+            },
+            "timezone": {
+                "offset": "+11:00",
+                "description": "Magadan, Solomon Islands, New Caledonia"
+            }
+        },
+        "email": "hanna.graham@example.com",
+        "login": {
+            "uuid": "654ffc4c-2aad-4556-be5a-eb2b2edad75f",
+            "username": "redwolf756",
+            "password": "freeman",
+            "salt": "PQ1xvzT3",
+            "md5": "a3e12ca9d15379520f93677f33a1315e",
+            "sha1": "aa8214fd856a4fee14964549724b8ecfe05fb6e1",
+            "sha256": "0f23595fa0302f4f1b0445d75f6f8344afb0aafaa762f3bab1c1825d29f78b8a"
+        },
+        "dob": {
+            "date": "1953-04-08T18:15:26.185Z",
+            "age": 67
+        },
+        "registered": {
+            "date": "2015-05-02T04:05:41.330Z",
+            "age": 5
+        },
+        "phone": "071-868-4399",
+        "cell": "081-505-4379",
+        "id": {
+            "name": "PPS",
+            "value": "8120355T"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/17.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/17.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/17.jpg"
+        },
+        "nat": "IE"
+    }, {
+        "gender": "female",
+        "name": {
+            "title": "Mrs",
+            "first": "Alice",
+            "last": "Li"
+        },
+        "location": {
+            "street": {
+                "number": 993,
+                "name": "Coastal Highway"
+            },
+            "city": "Clinton",
+            "state": "Nunavut",
+            "country": "Canada",
+            "postcode": "Y8I 6O0",
+            "coordinates": {
+                "latitude": "80.7824",
+                "longitude": "34.5445"
+            },
+            "timezone": {
+                "offset": "-8:00",
+                "description": "Pacific Time (US & Canada)"
+            }
+        },
+        "email": "alice.li@example.com",
+        "login": {
+            "uuid": "0875cee3-3058-492e-8892-1439389ccc01",
+            "username": "silvertiger127",
+            "password": "boating",
+            "salt": "IJWWWaha",
+            "md5": "6145b1663c8c6bca8220eaeeb947da9c",
+            "sha1": "6bda7afaf63f866e86b9b388df16fc72b2e7ea52",
+            "sha256": "399eec9541072eef27c24f736e5999618bf09b35b756e810d4ff840f02e2ba38"
+        },
+        "dob": {
+            "date": "1978-02-10T01:20:33.240Z",
+            "age": 42
+        },
+        "registered": {
+            "date": "2016-12-20T01:33:07.171Z",
+            "age": 4
+        },
+        "phone": "442-496-8609",
+        "cell": "356-951-4815",
+        "id": {
+            "name": "",
+            "value": null
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/66.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/66.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/66.jpg"
+        },
+        "nat": "CA"
+    }],
+    "info": {
+        "seed": "1f8ee5ae53aa085f",
+        "results": 50,
+        "page": 1,
+        "version": "1.3"
+    }
+}
