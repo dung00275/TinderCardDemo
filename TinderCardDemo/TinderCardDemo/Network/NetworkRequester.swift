@@ -52,8 +52,6 @@ extension Session: NetworkServiceProtocol {
     }
 }
 
-
-
 struct NetworkRequester: RequestNetworkProtocol {
     static let `default` = NetworkRequester(provider: Session.default)
     var provider: NetworkServiceProtocol

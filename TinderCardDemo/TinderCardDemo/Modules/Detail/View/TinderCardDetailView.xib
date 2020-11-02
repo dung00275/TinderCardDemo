@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TinderCardDetailView" customModule="TinderCardDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10H-QW-onE">
+                    <rect key="frame" x="127" y="30" width="160" height="160"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0ya-xf-HWz">
+                            <rect key="frame" x="5" y="5" width="150" height="150"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="75"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="0ya-xf-HWz" firstAttribute="leading" secondItem="10H-QW-onE" secondAttribute="leading" constant="5" id="BiH-4E-VEy"/>
+                        <constraint firstAttribute="width" constant="160" id="EA9-NN-z5c"/>
+                        <constraint firstAttribute="trailing" secondItem="0ya-xf-HWz" secondAttribute="trailing" constant="5" id="Tv3-pv-ab1"/>
+                        <constraint firstItem="0ya-xf-HWz" firstAttribute="top" secondItem="10H-QW-onE" secondAttribute="top" constant="5" id="d3c-hP-naT"/>
+                        <constraint firstAttribute="height" constant="160" id="haf-fj-WI4"/>
+                        <constraint firstAttribute="bottom" secondItem="0ya-xf-HWz" secondAttribute="bottom" constant="5" id="n8O-K6-Nf5"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="80"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.93725490199999995" green="0.32156862749999998" blue="0.1333333333" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tjx-Yu-aUW">
+                    <rect key="frame" x="10" y="210" width="394" height="50.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My name is" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKw-Gm-Khc">
+                            <rect key="frame" x="151.5" y="0.0" width="91.5" height="21.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" red="0.38823529410000002" green="0.44705882349999998" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26G-4O-lTN">
+                            <rect key="frame" x="171.5" y="26.5" width="51.5" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dic-2F-gs8">
+                    <rect key="frame" x="0.0" y="846" width="414" height="50"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="VhC-Il-Li5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="10H-QW-onE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3kh-zw-5HM"/>
+                <constraint firstItem="dic-2F-gs8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DuS-9D-U3Q"/>
+                <constraint firstItem="tjx-Yu-aUW" firstAttribute="top" secondItem="10H-QW-onE" secondAttribute="bottom" constant="20" id="GpM-Nk-XRG"/>
+                <constraint firstAttribute="bottom" secondItem="dic-2F-gs8" secondAttribute="bottom" id="Nqn-Cr-lgI"/>
+                <constraint firstItem="tjx-Yu-aUW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="XLw-5u-JQR"/>
+                <constraint firstAttribute="trailing" secondItem="dic-2F-gs8" secondAttribute="trailing" id="Yys-6n-5y6"/>
+                <constraint firstAttribute="trailing" secondItem="tjx-Yu-aUW" secondAttribute="trailing" constant="10" id="bN7-EX-bOg"/>
+                <constraint firstItem="10H-QW-onE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="hby-HJ-DoR"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="containerSegmentView" destination="dic-2F-gs8" id="cWX-jW-UQV"/>
+                <outlet property="imageView" destination="0ya-xf-HWz" id="HLQ-o0-rip"/>
+                <outlet property="lblName" destination="26G-4O-lTN" id="2hj-IV-C2P"/>
+            </connections>
+            <point key="canvasLocation" x="-161" y="-169"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

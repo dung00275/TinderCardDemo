@@ -8,10 +8,14 @@
 //  --------------------------------------------------------------
 
 import Foundation
-struct Picture : Codable {
+struct Picture : Codable, ImageDisplayProtocol {
 	let large : String?
 	let medium : String?
 	let thumbnail : String?
+    
+    var imageURL: String? {
+        return medium
+    }
 
 	enum CodingKeys: String, CodingKey {
 
