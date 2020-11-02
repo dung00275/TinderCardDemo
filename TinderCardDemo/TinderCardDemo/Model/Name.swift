@@ -8,10 +8,17 @@
 //  --------------------------------------------------------------
 
 import Foundation
-struct Name : Codable {
+struct Name : Codable, CustomStringConvertible {
 	let title : String?
 	let first : String?
 	let last : String?
+    
+    var description: String {
+        let n1 = title ?? ""
+        let n2 = last ?? ""
+        let n3 = first ?? ""
+        return "\(n1) \(n2) \(n3)"
+    }
 
 	enum CodingKeys: String, CodingKey {
 

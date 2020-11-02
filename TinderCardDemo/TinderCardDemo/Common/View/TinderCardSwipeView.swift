@@ -91,15 +91,19 @@ final class TinderCardSwipeView<ContentView>: UIView, TinderManagerViewDelegateP
     }
     
     private func updateAnimateView(_ completion: ((Bool) -> Void)?) {
-        containerView.subviews.reversed().enumerated().forEach { (i) in
+        containerView.subviews.compactMap { $0 as? ContentView }.reversed().enumerated().forEach { (i) in
+            i.element.isUserInteractionEnabled = i.offset == 0
             animateInsert(view: i.element, at: i.offset, completion: nil)
         }
         completion?(true)
     }
     
     private func animateInsert(view: UIView, at index: Int, completion: ((Bool) -> Void)?) {
+        let t1 = CGAffineTransform(translationX: 0, y: CGFloat(index * 5))
+        let t2 = CGAffineTransform(scaleX: 1 - CGFloat(index) * 0.05, y: 1)
+        let transform = t1.concatenating(t2)
         UIView.animate(withDuration: 0.3, delay: 0, options: .allowUserInteraction, animations: {
-            view.transform = CGAffineTransform(translationX: 0, y: CGFloat(index * 10))
+            view.transform = transform
         }, completion: completion)
     }
     
@@ -111,7 +115,7 @@ final class TinderCardSwipeView<ContentView>: UIView, TinderManagerViewDelegateP
     // MARK: -- Delegate
     func didRemove(view: UIView, location: CGPoint, direction: CGVector) {
         viewManagers.removeValue(forKey: view)
-        loadView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: loadView)
     }
 }
 

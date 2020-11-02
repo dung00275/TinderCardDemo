@@ -13,7 +13,14 @@ import RxSwift
 
 struct Router: APIRequestProtocol {
     static let host = "https://randomuser.me"
-    static let requestUser = Router(path: host + "/api", params: ["results": 50], header: nil)
+    static let requestUser: Router = {
+        #if DEBUG
+        let p = urlArgument ?? "/api"
+        return Router(path: host + p, params: ["results": loadNumberItems], header: nil)
+        #else
+        return Router(path: host + "/api", params: ["results": 50], header: nil)
+        #endif
+    }()
     
     var path: String
     var params: [String: Any]?
@@ -30,7 +37,7 @@ extension Session: NetworkServiceProtocol {
                                     method: router.method,
                                     parameters: router.params,
                                     encoding: router.encoding, headers: headers)
-            task.responseData { data in
+            task.validate(statusCode: 200..<300).responseData { data in
                 let result = data.result
                 defer {
                     s.onCompleted()
@@ -52,8 +59,6 @@ extension Session: NetworkServiceProtocol {
     }
 }
 
-
-
 struct NetworkRequester: RequestNetworkProtocol {
     static let `default` = NetworkRequester(provider: Session.default)
     var provider: NetworkServiceProtocol
@@ -64,6 +69,22 @@ struct NetworkRequester: RequestNetworkProtocol {
     func request<T>(using router: APIRequestProtocol,
                     decodeTo: T.Type,
                     block: ((JSONDecoder) -> Void)? = nil) -> Observable<Result<T, Error>> where T : Decodable {
+        #if DEBUG
+        if loadFile {
+            guard let url = Bundle.main.url(forResource: "responseDummy", withExtension: "json") else {
+                let e = NSError(domain: NSURLErrorDomain, code: NSURLErrorFileDoesNotExist, userInfo: [NSLocalizedDescriptionKey: "File Not exist."])
+                return .just(.failure(e))
+            }
+            
+            let r = Result { () -> T in
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(T.self, from: data)
+                return result
+            }
+            return .just(r)
+        }
+        #endif
         return provider.request(using: router).map { response -> Result<T, Error> in
             Swift.Result {
                 let r = try response.get()
