@@ -52,7 +52,7 @@ final class TinderCardDemoInteractor: PresentableInteractor<TinderCardDemoPresen
         // todo: Pause any business logic.
     }
     
-    private func requestUsers() {
+    func requestUsers() {
         networkRequester.request(using: Router.requestUser,
                                  decodeTo: UserResponse.self,
                                  block: nil)

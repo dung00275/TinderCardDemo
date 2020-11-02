@@ -69,11 +69,27 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="VhC-Il-Li5"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MgE-Hl-KUx">
+                    <rect key="frame" x="177" y="320.5" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="CDc-jB-jBM"/>
+                        <constraint firstAttribute="width" constant="60" id="sa6-4M-YGR"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="10H-QW-onE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3kh-zw-5HM"/>
+                <constraint firstItem="MgE-Hl-KUx" firstAttribute="top" secondItem="tjx-Yu-aUW" secondAttribute="bottom" constant="60" id="AAs-Av-ddy"/>
                 <constraint firstItem="dic-2F-gs8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DuS-9D-U3Q"/>
                 <constraint firstItem="tjx-Yu-aUW" firstAttribute="top" secondItem="10H-QW-onE" secondAttribute="bottom" constant="20" id="GpM-Nk-XRG"/>
                 <constraint firstAttribute="bottom" secondItem="dic-2F-gs8" secondAttribute="bottom" id="Nqn-Cr-lgI"/>
@@ -81,12 +97,14 @@
                 <constraint firstAttribute="trailing" secondItem="dic-2F-gs8" secondAttribute="trailing" id="Yys-6n-5y6"/>
                 <constraint firstAttribute="trailing" secondItem="tjx-Yu-aUW" secondAttribute="trailing" constant="10" id="bN7-EX-bOg"/>
                 <constraint firstItem="10H-QW-onE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="hby-HJ-DoR"/>
+                <constraint firstItem="MgE-Hl-KUx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="paS-xk-0NT"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="containerSegmentView" destination="dic-2F-gs8" id="cWX-jW-UQV"/>
                 <outlet property="imageView" destination="0ya-xf-HWz" id="HLQ-o0-rip"/>
                 <outlet property="lblName" destination="26G-4O-lTN" id="2hj-IV-C2P"/>
+                <outlet property="stateImageView" destination="MgE-Hl-KUx" id="tUK-fr-41l"/>
             </connections>
             <point key="canvasLocation" x="-161" y="-169"/>
         </view>

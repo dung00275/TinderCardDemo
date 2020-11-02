@@ -18,6 +18,7 @@ protocol TinderCardDemoPresentableListener: class {
     // interactor class.
     var response: Observable<Result<UserResponse, Error>> { get }
     func routeToDetail()
+    func requestUsers()
 }
 
 final class TinderCardDemoVC: UIViewController, TinderCardDemoPresentable, TinderCardDemoViewControllable {
@@ -26,12 +27,13 @@ final class TinderCardDemoVC: UIViewController, TinderCardDemoPresentable, Tinde
 
     /// Class's public properties.
     weak var listener: TinderCardDemoPresentableListener?
-
+    private lazy var disposeBag = DisposeBag()
     // MARK: View's lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         visualize()
         view.backgroundColor = .yellow
+        setupRX()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,7 +42,6 @@ final class TinderCardDemoVC: UIViewController, TinderCardDemoPresentable, Tinde
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        listener?.routeToDetail()
     }
 
     /// Class's private properties.
@@ -62,14 +63,26 @@ extension TinderCardDemoVC {
 
 // MARK: Class's private methods
 private extension TinderCardDemoVC {
-    private func localize() {
-        // todo: Localize view's here.
-    }
-    private func visualize() {
-        // todo: Visualize view's here.
+    func localize() {}
+    func visualize() {}
+    
+    private func handlerError(_ e: Error) {
+        let actionRetry = UIAlertAction(title: "Retry", style: .cancel, handler: weakify({ (_, wSelf) in
+            wSelf.listener?.requestUsers()
+        }))
+        let alertVC = UIAlertController(title: "Error", message: e.localizedDescription, preferredStyle: .alert)
+        alertVC.addAction(actionRetry)
+        present(alertVC, animated: true, completion: nil)
     }
     
     func setupRX() {
-        
+        listener?.response.bind(onNext: weakify({ (res, wSelf) in
+            switch res {
+            case .success:
+                wSelf.listener?.routeToDetail()
+            case .failure(let e):
+                wSelf.handlerError(e)
+            }
+        })).disposed(by: disposeBag)
     }
 }

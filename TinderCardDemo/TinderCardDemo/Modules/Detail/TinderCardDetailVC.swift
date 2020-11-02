@@ -62,7 +62,7 @@ private extension TinderCardDetailVC {
     private func visualize() {
         // todo: Visualize view's here.
         let edge = view.safeAreaInsets
-        let tinderCardView = TinderCardSwipeView<TinderCardDetailView>.init(using: UIEdgeInsets(top: edge.top + 20, left: 30, bottom: edge.bottom + 50, right: 30), maxInvisible: 5) { [weak self] (idx) -> Observable<TinderCardDetailView?> in
+        let tinderCardView = TinderCardSwipeView<TinderCardDetailView>.init(using: UIEdgeInsets(top: edge.top + 40, left: 30, bottom: edge.bottom + 50, right: 30), maxInvisible: 5) { [weak self] (idx) -> Observable<TinderCardDetailView?> in
             guard let wSelf = self, let listener = wSelf.listener else { return .empty() }
             return listener.source.take(1).map { items -> TinderCardDetailView? in
                 guard let i = items[safe: idx] else { return nil }

@@ -13,6 +13,7 @@ final class TinderCardDetailView: UIView, UpdateDisplayProtocol, SwipeHandlerDir
     /// Class's public properties.
     @IBOutlet var imageView: UIImageView?
     @IBOutlet var lblName: UILabel?
+    @IBOutlet var stateImageView: UIImageView?
     @IBOutlet var containerSegmentView: UIView?
     /// Class's private properties.
     
@@ -21,8 +22,26 @@ final class TinderCardDetailView: UIView, UpdateDisplayProtocol, SwipeHandlerDir
         lblName?.text = value?.name?.description
     }
     
-    func handlerDirection(location: CGPoint, translation: CGPoint) {}
-    func cancelDragGesture() {}
+    func handlerDirection(location: CGPoint, translation: CGPoint) {
+        let direction = CardDirection.from(point: translation)
+        guard let center = superview?.superview?.center, abs(center.x) > 0 else {
+            return
+        }
+        let ratio = abs((location.x + translation.x)) / abs(center.x)
+        let nextAlpha = min(abs(1 - ratio), 1)
+        stateImageView?.alpha = nextAlpha
+        switch direction {
+        case .left:
+            stateImageView?.isHighlighted = true
+        case .right:
+            stateImageView?.isHighlighted = false
+        default:
+            break
+        }
+    }
+    func cancelDragGesture() {
+        stateImageView?.alpha = 0
+    }
 }
 
 // MARK: Class's public methods
@@ -30,6 +49,7 @@ extension TinderCardDetailView {
     override func awakeFromNib() {
         super.awakeFromNib()
         initialize()
+        cancelDragGesture()
     }
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -45,6 +65,12 @@ private extension TinderCardDetailView {
         layer.borderWidth = 1
         layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         clipsToBounds = true
+        
+        let i1 = UIImage(systemName: "heart.fill")
+        let i2 = UIImage(systemName: "heart.slash")
+        stateImageView?.image = i2?.color(color: #colorLiteral(red: 0.3882352941, green: 0.4470588235, blue: 0.5019607843, alpha: 1))
+        stateImageView?.highlightedImage = i1?.color(color: .red)
+        
         let segment = CustomSegmentView<TinderItemInfoView, String>.init(edges: .zero, spacing: 0, axis: .horizontal, distribution: .fillEqually) { (_, nameImage) -> TinderItemInfoView in
             let v = TinderItemInfoView.loadXib()
             v.setupDisplay(nameImage)
