@@ -53,9 +53,12 @@ final class TinderCardDemoInteractor: PresentableInteractor<TinderCardDemoPresen
     }
     
     func requestUsers() {
+        mLoadingRequest = true
         networkRequester.request(using: Router.requestUser,
                                  decodeTo: UserResponse.self,
-                                 block: nil)
+                                 block: nil).do(onDispose: weakify({ (wSelf) in
+                                    wSelf.mLoadingRequest = false
+                                 }))
             .bind(onNext: weakify({ (res, wSelf) in
                 wSelf.mResponse = res
             })).disposeOnDeactivate(interactor: self)
@@ -63,6 +66,7 @@ final class TinderCardDemoInteractor: PresentableInteractor<TinderCardDemoPresen
 
     /// Class's private properties.
     @Replay(queue: MainScheduler.asyncInstance) private var mResponse: Result<UserResponse, Error>
+    @Replay(queue: MainScheduler.asyncInstance) private var mLoadingRequest: Bool
 }
 
 // MARK: TinderCardDemoInteractable's members
@@ -73,6 +77,10 @@ extension TinderCardDemoInteractor: TinderCardDemoInteractable, Weakifiable {
 extension TinderCardDemoInteractor: TinderCardDemoPresentableListener {
     var response: Observable<Result<UserResponse, Error>> {
         return $mResponse
+    }
+    
+    var loadingRequest: Observable<Bool> {
+        return $mLoadingRequest
     }
     
     func routeToDetail() {

@@ -28,7 +28,7 @@ final class TinderCardDetailView: UIView, UpdateDisplayProtocol, SwipeHandlerDir
             return
         }
         let ratio = abs((location.x + translation.x)) / abs(center.x)
-        let nextAlpha = min(abs(1 - ratio), 1)
+        let nextAlpha = min(ratio > 1 ? ratio : 1 - ratio, 1)
         stateImageView?.alpha = nextAlpha
         switch direction {
         case .left:

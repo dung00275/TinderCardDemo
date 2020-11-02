@@ -70,8 +70,6 @@ final class TinderManagerViewGesture<ContentView>: Weakifiable where ContentView
     }
     
     private func addSnapContainer() {
-//        let midX = containerView.superview?.bounds.midX ?? 0
-//        let midY = containerView.superview?.bounds.midY ?? 0
         let p = containerView.center
         self.snapBehavior = UISnapBehavior(item: view, snapTo: p)
         self.snapBehavior?.damping = 0.75

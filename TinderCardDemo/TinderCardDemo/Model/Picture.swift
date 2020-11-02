@@ -14,7 +14,7 @@ struct Picture : Codable, ImageDisplayProtocol {
 	let thumbnail : String?
     
     var imageURL: String? {
-        return medium
+        return large
     }
 
 	enum CodingKeys: String, CodingKey {

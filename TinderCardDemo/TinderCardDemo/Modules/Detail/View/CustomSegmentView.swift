@@ -1,4 +1,4 @@
-//  File name   : VatoSegmentView.swift
+//  File name   : CustomSegmentView.swift
 //
 //  Author      : Dung Vu
 //  Created date: 5/5/20

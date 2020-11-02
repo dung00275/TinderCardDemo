@@ -17,11 +17,13 @@ protocol TinderCardDemoPresentableListener: class {
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
     var response: Observable<Result<UserResponse, Error>> { get }
+    var loadingRequest: Observable<Bool> { get }
     func routeToDetail()
     func requestUsers()
 }
 
 final class TinderCardDemoVC: UIViewController, TinderCardDemoPresentable, TinderCardDemoViewControllable {
+    @IBOutlet var indicator: UIActivityIndicatorView?
     private struct Config {
     }
 
@@ -83,6 +85,10 @@ private extension TinderCardDemoVC {
             case .failure(let e):
                 wSelf.handlerError(e)
             }
+        })).disposed(by: disposeBag)
+        
+        listener?.loadingRequest.bind(onNext: weakify({ (loading, wSelf) in
+            loading ? wSelf.indicator?.startAnimating() : wSelf.indicator?.stopAnimating()
         })).disposed(by: disposeBag)
     }
 }
